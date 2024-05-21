@@ -1,7 +1,5 @@
 # Frontend Mentor - Recipe page solution
 
-This is a solution to the [Recipe page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
-
 ## Table of contents
 
 - [Overview](#overview)
@@ -16,25 +14,21 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### Screenshot
 
-![](./screenshot.jpg)
+_1. Desktop design_
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+![](./assets/images/Recipe_page_desktop_design.png)
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+_2. Mobile design_
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./assets/images/Recipe_page_mobile_display.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+<!-- - Solution URL: [Add solution URL here](https://your-solution-url.com) -->
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
@@ -44,61 +38,94 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+- Changing the list's bullet color or font size by using the code below:
 
-To see how you can add code snippets, see below:
+```css
+ul > li::marker {
+  font-size: 12px;
+}
+
+.recipe-desc li::marker {
+  color: var(--Dark_Raspberry);
+}
+```
+
+- Because I'm using this structure for showing the image, so when showing on small devices I have to make the image full-width and ignore the padding. Below are the html code and the css code (the CSS code solution for this part I asked ChatGPT): 
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+  <div class="container">
+    <div class="recipe">
+      <div class="recipe-img">
+        <img src="./assets/images/image-omelette.jpeg" alt="Simple Omelette Recipe">
+      </div>
+      <h2 class="recipe-title">Simple Omelette Recipe</h2>
+      <p class="recipe-intro">
+        An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked to perfection,
+        optionally filled with your choice of cheese, vegetables, or meats.
+      </p>
+      ...
 ```
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+@media only screen and (max-width: 912px) {
+  .container {
+    padding: 0;
+    background-color: var(--White);
+  }
+
+  .recipe {
+    width: 100%;
+    padding-top: 0;
+    border-radius: none;
+  }
+
+  .recipe-img {
+    width: calc(100% + 40px);
+  }
+
+  .recipe-img img {
+    width: calc(100% + 40px);
+    margin-left: -40px;
+    margin-right: -40px;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .attribution {
+    background-color: var(--Eggshell);
+  }
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+- Styling the table:
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```css
+.recipe-nutrition table tr td:first-of-type {
+  width: 40%;
+  padding-left: 30px;
+}
+.recipe-nutrition table tr td:last-of-type {
+  width: 60%;
+  font-weight: 600;
+  color: var(--Nutmeg);
+  padding-left: 10px;
+}
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+CSS Grid once again!
 
 ### Useful resources
 
 - [W3School](https://www.w3schools.com/howto/howto_css_bullet_color.asp) - How to change CSS bullet color of lists.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [FreeCodeCamp](https://www.freecodecamp.org/news/media-query-css-example-max-and-min-screen-width-for-mobile-responsive-design/) - This is an amazing article that helped me understand some basics of media query CSS.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@auri222](https://www.frontendmentor.io/profile/auri222)
